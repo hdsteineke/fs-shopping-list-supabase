@@ -13,7 +13,9 @@ logoutButton.addEventListener('click', () => {
 const form = document.querySelector('form');
 const listContainer = document.querySelector('.list-container');
 
-
+window.addEventListener('load', () => {
+    fetchAndDisplayList();
+})
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
