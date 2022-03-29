@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <title>Document</title>
 </head>
 
@@ -22,11 +23,25 @@
     <button id="logout">Logout</button>
     <main>
         <h1>You are logged in!</h1>
+        <form class="item-form">
+            <label>Qty:
+                <input type="number" name="quantity" min="0" />
+            </label>
+            <label>Item:
+                <input name="item" />
+            </label>
+                <button>Add to cart</button>
+        </form>
     </main>
+    <section>
+        <div class="list-container">
+            <button>Reset shopping list</button>
+        </div>
+    </section>
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
     </footer>
-    <script type="module" src="./other-page.js"></script>
+    <script type="module" src="./shopping-list.js"></script>
 </body>
 
 </html>
