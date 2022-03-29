@@ -133,3 +133,17 @@ footer {
 .list-container {
 
 }
+
+.obtained {
+
+}
+
+.incomplete {
+
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

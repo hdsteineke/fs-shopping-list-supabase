@@ -40,3 +40,39 @@ export async function logout() {
 // function checkError({ data, error }) {
 //     return error ? console.error(error) : data;
 // }
+
+export async function createItem() {
+    const response = await client
+        .from('wish_list')
+        .insert([{
+            qty, item
+        }]);
+    
+        return response.body;
+}
+
+export async function getListItems() {
+    const response = await client
+        .from('wish_list')
+        .select()
+
+    return response.body;
+
+}
+
+export async function buyListItems(id) {
+    const response = await client
+        .from('wish_list')
+        .update({ obtained: true })
+        .match({ id });
+
+    return response.body;
+}
+
+export async fuction deleteListItems() {
+    const response = await client
+        .from('wish_list')
+        .delete();
+
+    return response.body;
+}
