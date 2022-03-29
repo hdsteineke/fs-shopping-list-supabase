@@ -34,10 +34,8 @@ Master Plan:
 -Make Supabase table and edit policies
 -Check that log-in/sign-up/logout is working and redirecting
 -Write fetch utils
-        - on load
-        - on click (add to cart)
-        - on click (bought or not)
 -Add event listeners
+        - on load
         - form 'submit'
         - but item 'click'
         - reset shopping list 'click'

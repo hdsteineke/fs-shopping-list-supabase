@@ -1,8 +1,8 @@
-export function renderListItem(item) {
+export function renderItem(item) {
     const listItemEl = document.createElement('div');
     const itemText = document.createElement('p');
 
-    if (item.complete) {
+    if (item.obtained) {
         listItemEl.classList.add('obtained');
     } else {
         listItemEl.classList.add('incomplete');

@@ -1,7 +1,7 @@
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtkamZ3c3djcWxzZnVodGVtYnVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDc1NTM1ODksImV4cCI6MTk2MzEyOTU4OX0.UL14baUjdJa7Tgx9CS1Ky_ZJ78nsDmyOwDEPePPJe10';
 const SUPABASE_URL = 'https://kdjfwswcqlsfuhtembua.supabase.co';
 
-const client = supabase.createClient(SUPABASE_URL, process.env.SUPABASE_KEY);
+const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
@@ -41,26 +41,26 @@ export async function logout() {
 //     return error ? console.error(error) : data;
 // }
 
-export async function createItem() {
+export async function createItem(qty, item) {
     const response = await client
         .from('wish_list')
         .insert([{
             qty, item
         }]);
     
-        return response.body;
+    return response.body;
 }
 
 export async function getListItems() {
     const response = await client
         .from('wish_list')
-        .select()
+        .select();
 
     return response.body;
 
 }
 
-export async function buyListItems(id) {
+export async function obtainListItems(id) {
     const response = await client
         .from('wish_list')
         .update({ obtained: true })
@@ -69,7 +69,7 @@ export async function buyListItems(id) {
     return response.body;
 }
 
-export async fuction deleteListItems() {
+export async function deleteListItems() {
     const response = await client
         .from('wish_list')
         .delete();
