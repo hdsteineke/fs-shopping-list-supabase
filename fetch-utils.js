@@ -72,7 +72,10 @@ export async function obtainListItems(id) {
 export async function deleteListItems() {
     const response = await client
         .from('wish_list')
-        .delete();
+        .delete()
+        .match({
+            user_id: client.auth.user().id
+        });
 
     return response.body;
 }

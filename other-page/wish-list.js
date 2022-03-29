@@ -1,4 +1,4 @@
-import { checkAuth, createItem, getListItems, logout, obtainListItems } from '../fetch-utils.js';
+import { checkAuth, createItem, deleteListItems, getListItems, logout, obtainListItems } from '../fetch-utils.js';
 import { renderItem } from '../render-utils.js';
 
 checkAuth();
@@ -12,6 +12,7 @@ logoutButton.addEventListener('click', () => {
 
 const form = document.querySelector('form');
 const listContainer = document.querySelector('.list-container');
+const resetButton = document.querySelector('.reset');
 
 window.addEventListener('load', () => {
     fetchAndDisplayList();
@@ -54,3 +55,8 @@ async function fetchAndDisplayList() {
     }
     //insert loading spinner
 }
+
+resetButton.addEventListener('click', async () => {
+    await deleteListItems();
+    await fetchAndDisplayList();
+});
