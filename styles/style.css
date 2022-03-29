@@ -135,11 +135,11 @@ footer {
 }
 
 .obtained {
-
+    color: white
 }
 
 .incomplete {
-
+    color:purple
 }
 
 .item {

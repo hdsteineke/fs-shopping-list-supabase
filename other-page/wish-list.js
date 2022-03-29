@@ -22,7 +22,7 @@ form.addEventListener('submit', async (e) => {
 
     const item = data.get('item');
     const quantity = data.get('quantity');
-    
+
     await createItem(quantity, item);
 
     form.reset();
