@@ -17,7 +17,7 @@ logoutButton.addEventListener('click', () => {
 
 window.addEventListener('load', () => {
     fetchAndDisplayList();
-})
+});
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
