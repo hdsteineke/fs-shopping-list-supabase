@@ -3,16 +3,17 @@ import { renderItem } from '../render-utils.js';
 
 checkAuth();
 
+const form = document.querySelector('form');
+const listContainer = document.querySelector('.list-container');
+const resetButton = document.querySelector('.reset');
 const logoutButton = document.getElementById('logout');
+const loadingEl = document.querySelector('.loading-spinner');
+
 
 logoutButton.addEventListener('click', () => {
     logout();
 });
 
-
-const form = document.querySelector('form');
-const listContainer = document.querySelector('.list-container');
-const resetButton = document.querySelector('.reset');
 
 window.addEventListener('load', () => {
     fetchAndDisplayList();
@@ -35,8 +36,13 @@ form.addEventListener('submit', async (e) => {
 
 });
 
+function toggleLoadingSpinner() {
+    loadingEl.classList.toggle('invisible');
+}
+
 async function fetchAndDisplayList() {
     //insert loading spinner here
+    toggleLoadingSpinner();
 
     listContainer.textContent = '';
 
@@ -54,6 +60,7 @@ async function fetchAndDisplayList() {
         listContainer.append(itemEl);
     }
     //insert loading spinner
+    toggleLoadingSpinner();
 }
 
 resetButton.addEventListener('click', async () => {
